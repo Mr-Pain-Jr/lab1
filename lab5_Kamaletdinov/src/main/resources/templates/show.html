@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Show Taco</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/taco" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> Taco</a>
+                </h3>
+                <h2 th:text="${taco.tacoName}"></h2>
+                <h2><img th:src="${taco.tacoImage}" width="200" /></h2>
+                <dl class="list">
+                    <dt>Name</dt>
+                    <dd th:text="${taco.tacoDesc}"></dd>
+                    <dt>Description</dt>
+                    <dd th:text="${taco.tacoPrice}"></dd>
+                </dl>
+                <form action="/delete">
+                    <input type="hidden" name="id" th:value="${taco.id}" />
+                    <h2><input type="submit" class="glyphicon glyphicon-trash btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                        <a th:href="@{'/edit/' + ${taco.id}}" class="btn btn-warning glyphicon glyphicon-pencil">Edit</a></h2>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Create Taco</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/taco" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Taco</a>
+                </h3>
+                <h2>Add Taco to DB</h2>
+                <form action="/save">
+                    <div class="form-group">
+                        <label for="email">Taco Name:</label>
+                        <input type="text" class="form-control" name="tacoName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Description</label>
+                        <textarea class="form-control" name="tacoDesc" cols="60" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Price</label>
+                        <input type="number" class="form-control" name="tacoPrice" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Image</label>
+                        <input type="url" class="form-control" name="tacoImage" />
+                    </div>
+                    <button type="submit" class="btn btn-warning">Save</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Taco List</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/create" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Taco</a>
+                </h3>
+                <h2>Taco List</h2>
+                <div class="table-responsive">
+                    <table class="table" id="taco-table">
+                        <thead>
+                            <tr>
+                                <th>Taco Name</th>
+                                <th>Details</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="taco : ${tacos}">
+                                <td><a th:text="${taco.tacoName}" th:href="@{'/show/' + ${taco.id}}" class="text-decoration-none"></a></td>
+                                <td th:text="${taco.tacoDesc}"></td>
+                                <td th:text="${taco.tacoPrice}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
